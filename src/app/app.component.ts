@@ -7,7 +7,11 @@ import { AccountsService } from './shared/services/accounts.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  constructor(private accountsService: AccountsService) {}
+  constructor(private accountsService: AccountsService) {
+    this.accountsService.statusUpdated.subscribe((status: string) => {
+      alert("Status updated to " + status);
+    })
+  }
 
   accounts: {name: string, status: string}[] = this.accountsService.accounts;
 }
