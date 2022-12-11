@@ -19,7 +19,15 @@ export class AccountsService {
     }
   ];
 
-  
+  addAccount(name: string, status: string): void {
+    this.accounts.push({
+      name,
+      status
+    })
+  }
 
+  updateStatus(id: number, status: string): void {
+    this.accounts[id].status = status;
+  }
   constructor() { }
 }
